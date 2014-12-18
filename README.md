@@ -40,9 +40,9 @@ You can define a job which send a message at a specific date and time in `remind
 //    /DATETIME REGEX PATTERN for yyyy-MM-dd HH:mm:ss/: [message: "YOUR_MESSAGE", target: "TARGET_CHANNEL", type: "NOTICE or PRIVMSG"]
 //
 [
-/.*/: [message: "Every second!", target: "#test", type: "NOTICE"],
-/:.0$/: [message: "Every 10 secons!", target: "#test", type: "PRIVMSG"],
-/^2014-01-01 00:00:00$/: [message: "Happy, new year!!", target: "#test", type: "NOTICE"],
+    /.*/: [message: "Every second!", target: "#test", type: "NOTICE"],
+    /:.0$/: [message: "Every 10 secons!", target: "#test", type: "PRIVMSG"],
+    /^2014-01-01 00:00:00$/: [message: "Happy, new year!!", target: "#test", type: "NOTICE"],
 ]
 ```
 
@@ -77,7 +77,7 @@ ircControl.sendNotify(context.channel, "Hello, ${context.sender}!")
 return null
 ```
 
-You can run this reactor when you send a message on IRC like "gircbot hello" with your bot name.
+You can run this reactor when you send a message on IRC like 'gircbot hello' with your bot name.
 
 
 UserScriptJob
@@ -101,5 +101,5 @@ if (context.time.format("yyyy-MM-dd HH:mm:ss") =~ /:00:00$/) {
 }
 ```
 
-You can run this command when you send a message on IRC like "gircbot hello" with your bot name.
+Each script is called for each second. So, you should check if the time is your target timing, and if not do nothing.
 
